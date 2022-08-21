@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 08:24:27 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/19 19:33:41 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/20 19:40:51 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "push_swap.h"
 
-void	visualize_stack(t_list *a, char stack);
+void	visualize_stack(t_list *a, t_list *b);
 
 int main(int argc, char **argv)
 {
@@ -30,34 +30,69 @@ int main(int argc, char **argv)
 	{
 		//malloc() :every malloc should be freed, free split;
 		argv = ft_split(argv[1], ' ');
+		if (argv[0] == NULL)
+			{
+				write(2, "Error\n", 7);
+				//free_split(argv[1]);
+				exit(1);
+			}
 		a = fill_a(argv, argc , 0);
 	}
 	else
 		a = fill_a(argv, argc , 1);
-	visualize_stack(a, 'a');
-	// brain_a(a, b);
+	//b = a;
+	visualize_stack(a, b);
+	//  swap(&a, 'a');
+	//  visualize_stack(a, a);
+	//  swap(&a, 'a');
+	//  visualize_stack(a, a);
+	
+	  //swap_ss(&a, &b);
+	push(&a, &b, 'a');
+	push(&a, &b, 'b');
+	push(&a, &b, 'b');
+	visualize_stack(a, b);
+	brain(a, b);
 	return (0);
 }
 
-void	visualize_stack(t_list *a, char stack)
+void	visualize_stack(t_list *a, t_list *b)
 {
 	int	i;
+	int	j;
 	
-	ft_printf("Visualizing stack %c\n",stack );
-	ft_printf("--------------------------------------------------------------------\n");
+	j = -1;
 	i = -1;
-	if (!a)
+	// ft_printf("Visualizing stacks:\n" );
+	ft_printf("--------------------------------------------------\n");
+	if (!a && !b)
 	{
-		ft_printf("Inside visualize stack, and stack is empty\n");
+		ft_printf("Inside visualize stack, and both stacks are empty\n");
 		return ;
 	}
-	while (a)
+	ft_printf("|a - index | a - content| b - content| b - index | \n");
+	ft_printf("--------------------------------------------------\n");
+	while (a || b)
 	{
-		ft_printf("item %d --> %d\n", ++i, a->content);
-		a = a->next;
+		if (a)
+		{
+			ft_printf("| %d     ----->     %d    | ", ++i, *(int *)a->content);
+			a = a->next;
+		}
+		else
+			ft_printf("|                       | ");
+		if (b)
+		{
+			ft_printf(" %d      <--     %d      ",  *(int *)b->content, ++j);
+			b = b->next;
+		}
+		else
+			ft_printf("                      ");
+		ft_printf("|\n");
+		
 	}
-	ft_printf("--------------------------------------------------------------------\n");
-	ft_printf("Visualization end.......\n");
+		ft_printf("--------------------------------------------------\n");
+	// ft_printf("Visualization end.......\n");
 }
 
 

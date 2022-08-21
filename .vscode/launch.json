@@ -1,0 +1,19 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "C++ Launch (Windows)",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${fileDirname}/${fileBasenameNoExtension}",
+			// "symbolSearchPath": "C:\\Symbols;C:\\SymbolDir2",
+			"cwd": "${fileDirname}",
+			"args": ["1 2 3"],
+			"stopAtEntry": false,
+			"MIMode": "lldb",
+			"environment": [],
+			"externalConsole": false,
+			"preLaunchTask": "C/C++: gcc build active file"
+		}
+	]
+}

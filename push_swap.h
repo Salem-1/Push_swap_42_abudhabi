@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 08:24:55 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/19 14:50:30 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/20 19:28:27 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@
 
 
 t_list	*fill_a(char **args, int argc, int i);
-void	brain_a(t_list a,t_list *b);
+t_list	*filler(char **argv,  int i);
+void	brain(t_list *a,t_list *b);
 int		check_args(char *str, int i);
-t_list	*filler(char **argv, t_list *a, int i);
+void	swap(t_list **a, char flag);
+void	swap_ss(t_list **a, t_list **b);
+void	push(t_list **a, t_list **b, char flag);
 
 #endif

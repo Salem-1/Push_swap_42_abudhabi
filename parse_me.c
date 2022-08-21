@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 09:47:55 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/19 19:34:10 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/20 12:11:46 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,49 @@
 //check isdigit
 //check dublication
 //check for > or < int, you can do it inside the atoi
+//There is a good chance to do something with indexing the taken parameters
 t_list *fill_a(char **argv, int argc, int i)
 {
 	t_list	*a;
 	int		k;
 
-	k = 1;
 	k = i;
 	a = NULL;
-	// ft_printf("i = %d\n", i);
+	//ft_printf("i = %s\n", argv[0]);
 	while (i < argc && argv[i])
 	{
 		if (!check_args(argv[i], i))
 		{
-			write(2, "Error!\n", 7);
+			write(2, "Error\n", 7);
 			//clean stack a
 			exit(1);
 		}
-		ft_printf("%s is digit\n", argv[i]);
+	//	ft_printf("%s is digit\n", argv[i]);
 		i++;
 	}
-	ft_printf("do I segfault here\n");
-	a = filler(argv, a, k );
+	//ft_printf("do I segfault here\n");
+	a = filler(argv, k );
 	return (a);
 }
 
 int	check_args(char *str, int i)
 {
-	ft_printf("check args\n");
+	//ft_printf("check args\n");
 	i = 0;
+	if (!*str)
+		return (0);
 	while(str[i])
 	{
-		if (!ft_isdigit(str[i++]))
+		if (!(ft_isdigit(str[i])))
+		{
+			if (str[i + 1])
+			{
+				if (str[i] == '-' && ft_isdigit(str[++i]))
+				continue;
+			}
 			return (0);
+		}
+		i++;
 	}
 	if(ft_strlen(str) > 10 || ft_atoi(str) > 2147483647
 			|| ft_atoi(str) < (-2147483647 - 1))
@@ -54,23 +64,36 @@ int	check_args(char *str, int i)
 	return (1);
 }
 
-t_list *filler(char **argv, t_list *a, int i)
+t_list *filler(char **argv,  int i)
 {
-	t_list *tmp;
-	int		n;
-	
-	tmp = NULL;
-	ft_printf("first char is %s", argv[1]);
+	t_list	*tmp;
+	int		*n;
+	t_list	*a;
+
+
+	n = 0;
+	a = NULL;
+	//ft_printf("first char is %s", argv[0]);
 	tmp = NULL;
 	while(argv[i])
 	{
-		n = ft_atoi(argv[i]);
-		ft_printf("atoi n = %d    ", n);
-		tmp= ft_lstnew(&n);
-		ft_printf("n added successfully to the list value == (%d)\n", tmp->content);
+		//free this malloc
+		n = malloc(4);
+		// if (a)
+		// ft_printf("(%dth iteration) 1 node contetn %d \n", i,  *((int *)(a->content)));
+		*n = ft_atoi(argv[i]);
+		// if (a)
+		// ft_printf("(%dth iteration)2 node contetn %d \n", i, *((int *)(a->content)));
+	//	ft_printf("atoi n = %d\n", n);
+		tmp= ft_lstnew(n);
+		// if (a)
+		// ft_printf("(%dth iteration)3 node contetn %d \n", i, *((int *)(a->content)));
 		ft_lstadd_back(&a, tmp);
+		// ft_printf("(%dth iteration)4 node contetn %d \n", i, *((int *)(a->content)));
+		//ft_printf("%d added successfully to the list value == (%d)\n",n,  *((int *)a->content));
 		i++;
 	}
-	return (tmp);
+	ft_printf("after the loophead node content  %d \n",  *((int *)(a->content)));
+	return (a);
 }
 
