@@ -65,27 +65,25 @@ void	swap_ss(t_list **a, t_list **b)
 	ft_printf("ss\n");
 }
 
-void	push(t_list **a, t_list **b, char flag)
+void	rotate(t_list **a, char flag)
 {
-	t_list	*tmp;
+	t_list *tmp;
 
-	tmp = NULL;
+	if (!*a || !(*a)->next)
+		return ;
+	tmp = *a;
+	*a = (*a)->next;
+	tmp->next = NULL;
+	ft_lstadd_back(a, tmp);
 	if (flag == 'a')
-	{
-		if (!(*b))
-			return;
-		tmp = *b;
-		*b = (*b)->next;
-		ft_lstadd_front(a, tmp);
-		ft_printf("pa\n");
-	}
+		ft_printf("ra");
 	else if (flag == 'b')
-	{
-		if (!(*a))
-			return;
-		tmp = *a;
-		*a = (*a)->next;
-		ft_lstadd_front(b, tmp);
-		ft_printf("pb\n");
-	}
+		ft_printf("rb");
+}
+
+void	rotate_rr(t_list **a, t_list **b)
+{
+	rotate(a, 'r');
+	rotate(b, 'r');
+	ft_printf("rr\n");
 }

@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 08:24:27 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/20 19:40:51 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/21 10:02:21 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int main(int argc, char **argv)
 	push(&a, &b, 'b');
 	visualize_stack(a, b);
 	brain(a, b);
+	//ft_lstclear(&a, del);
+	//ft_lstclear(&b, del);
 	return (0);
 }
 

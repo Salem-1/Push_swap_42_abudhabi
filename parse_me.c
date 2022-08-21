@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 09:47:55 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/20 12:11:46 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/21 10:03:13 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,46 +15,70 @@
 //check dublication
 //check for > or < int, you can do it inside the atoi
 //There is a good chance to do something with indexing the taken parameters
+void visualize_split(char **arr);
 t_list *fill_a(char **argv, int argc, int i)
 {
 	t_list	*a;
-	int		k;
-
-	k = i;
+	int		start;
+	
+	//ft_printf("filla i = %d\n", i);
+	start = i;
 	a = NULL;
-	//ft_printf("i = %s\n", argv[0]);
-	while (i < argc && argv[i])
+	while ((i < argc || argc  == 2) && argv[i])
 	{
-		if (!check_args(argv[i], i))
+		//ft_printf("argv[%d] = %s\n", i ,argv[i]);
+		if (!(check_args(argv[i], i) && check_repeate(argv, argv[i], start, i)))
 		{
+			if (start == 0)
+			{
+				free_split(argv);
+			}
 			write(2, "Error\n", 7);
-			//clean stack a
 			exit(1);
 		}
-	//	ft_printf("%s is digit\n", argv[i]);
 		i++;
 	}
-	//ft_printf("do I segfault here\n");
-	a = filler(argv, k );
+	a = filler(argv, start );
+	if (start == 0)
+	free_split(argv);
 	return (a);
 }
 
+int check_repeate(char **argv, char *str, int start ,int i)
+{
+	while (argv[start])
+	{
+		if (start != i)
+		{
+			if (ft_strncmp(str, argv[start],ft_strlen(str)) == 0)
+			{
+				return (0);
+			}
+		}
+		start++;
+	}
+	return (1);
+}
 int	check_args(char *str, int i)
 {
-	//ft_printf("check args\n");
 	i = 0;
 	if (!*str)
 		return (0);
+		//visualize_split(argv);
 	while(str[i])
 	{
 		if (!(ft_isdigit(str[i])))
 		{
+			
 			if (str[i + 1])
 			{
-				if (str[i] == '-' && ft_isdigit(str[++i]))
-				continue;
+				if (str[i] == '-' && ft_isdigit(str[i + 1]))
+					;
+				else
+					return (0);
 			}
-			return (0);
+			else
+				return (0);
 		}
 		i++;
 	}
@@ -73,27 +97,29 @@ t_list *filler(char **argv,  int i)
 
 	n = 0;
 	a = NULL;
-	//ft_printf("first char is %s", argv[0]);
 	tmp = NULL;
 	while(argv[i])
 	{
-		//free this malloc
 		n = malloc(4);
-		// if (a)
-		// ft_printf("(%dth iteration) 1 node contetn %d \n", i,  *((int *)(a->content)));
 		*n = ft_atoi(argv[i]);
-		// if (a)
-		// ft_printf("(%dth iteration)2 node contetn %d \n", i, *((int *)(a->content)));
-	//	ft_printf("atoi n = %d\n", n);
 		tmp= ft_lstnew(n);
-		// if (a)
-		// ft_printf("(%dth iteration)3 node contetn %d \n", i, *((int *)(a->content)));
 		ft_lstadd_back(&a, tmp);
-		// ft_printf("(%dth iteration)4 node contetn %d \n", i, *((int *)(a->content)));
-		//ft_printf("%d added successfully to the list value == (%d)\n",n,  *((int *)a->content));
 		i++;
 	}
-	ft_printf("after the loophead node content  %d \n",  *((int *)(a->content)));
 	return (a);
 }
 
+/*
+void visualize_split(char **arr)
+{
+    int i = 0;
+
+    while (arr[i] != NULL)
+    {
+        ft_printf("<%s> and it's len is <%lu>\n", arr[i], ft_strlen(arr[i]));
+
+        i++;
+    }
+    ft_printf("\nSanity check last arr item <%s>\n", &arr[i][0]);
+}
+*/
