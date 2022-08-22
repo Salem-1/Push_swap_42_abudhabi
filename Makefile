@@ -1,10 +1,10 @@
 NAME =	push_swap
 SRC	=	main.c brain.c parse_me.c push.c swap.c cleaner.c
 LDIR = mlx
-CFLAGS =  -Wall -Wextra -Werror #-Ofast
+CFLAGS = -Wall -Wextra -Werror -g3 #-Ofast
 CC = gcc
 OBJ	=	$(SRC:.c=.o)
-LIBS = libft/libft.a  printf/printf.a
+LIBS =  ./printf/printf.a ./libft/libft.a
 
 
 
@@ -13,7 +13,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	make -C printf/.
 	make -C libft/.
-	$(CC) $(CFLAGS) -o $(NAME) $(LIBS) $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBS)  -o $(NAME)
 
 
 
@@ -31,3 +31,8 @@ fclean: clean
 	@rm -f push_swap
 	
 re: fclean all
+
+# mem: $(OBJ)
+# 	make -C printf/.
+# 	make -C libft/.
+# 	$(CC)  -o push_swap $(LIBS) $(OBJ)

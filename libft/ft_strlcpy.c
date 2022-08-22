@@ -6,13 +6,13 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 12:19:23 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/05/16 12:21:43 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/21 13:01:34 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t static	mystrlen(const char *s)
+size_t	mystrlen(const char *s)
 {
 	size_t	i;
 

@@ -6,19 +6,19 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 18:37:18 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/18 07:20:38 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/21 18:46:08 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_isspace(const char *c);
-static int	int_generator(const char *str, int num, int sign);
+int		ft_isspace(const char *c);
+long	int_generator(const char *str, long num, int sign);
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int	sign;
-	int	num;
+	long	num;
 
 	num = 0;
 	sign = 1;
@@ -44,7 +44,7 @@ int	ft_atoi(const char *str)
 	return (int_generator(str, num, sign));
 }
 
-static int	ft_isspace(const char *c)
+int	ft_isspace(const char *c)
 {
 	if ((*c >= 9 && *c <= 13) || *c == 32)
 		return (1);
@@ -52,7 +52,7 @@ static int	ft_isspace(const char *c)
 		return (0);
 }
 
-static int	int_generator(const char *str, int num, int sign)
+long	int_generator(const char *str, long num, int sign)
 {
 	int	outliar;
 

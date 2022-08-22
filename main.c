@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 08:24:27 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/21 10:02:21 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/22 15:56:06 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,40 +21,42 @@ int main(int argc, char **argv)
 {
 	t_list	*a;
 	t_list	*b;
+	char	*joined_args;
+	char	**splitted_args;
 
 	a = NULL;
 	b = NULL;
+	splitted_args = NULL;
+	joined_args = NULL;
 	if (argc < 2)
 		return (1);
-	if (argc == 2)
+	joined_args = join_arg(argv, argc);
+	ft_printf("joinedargs = %s\n", joined_args);
+	splitted_args = ft_split(joined_args, ' ');
+	free(joined_args);
+	if (splitted_args[0] == NULL)
 	{
-		//malloc() :every malloc should be freed, free split;
-		argv = ft_split(argv[1], ' ');
-		if (argv[0] == NULL)
-			{
-				write(2, "Error\n", 7);
-				//free_split(argv[1]);
-				exit(1);
-			}
-		a = fill_a(argv, argc , 0);
+		write(2, "Error\n", 7);
+		free_split(splitted_args);
+		exit(1);
 	}
-	else
-		a = fill_a(argv, argc , 1);
-	//b = a;
+	a = fill_a(splitted_args, 0);
 	visualize_stack(a, b);
 	//  swap(&a, 'a');
 	//  visualize_stack(a, a);
-	//  swap(&a, 'a');
 	//  visualize_stack(a, a);
 	
 	  //swap_ss(&a, &b);
-	push(&a, &b, 'a');
 	push(&a, &b, 'b');
+	  swap(&b, 'b');
 	push(&a, &b, 'b');
+	  rotate(&b, 'b');
+	
+	//push(&a, &b, 'a');
 	visualize_stack(a, b);
-	brain(a, b);
-	//ft_lstclear(&a, del);
-	//ft_lstclear(&b, del);
+	//brain(a, b);
+	ft_lstclear(&a, del);
+	ft_lstclear(&b, del);
 	return (0);
 }
 

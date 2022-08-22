@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 09:47:55 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/21 10:03:13 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/22 15:40:49 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,15 @@
 //check for > or < int, you can do it inside the atoi
 //There is a good chance to do something with indexing the taken parameters
 void visualize_split(char **arr);
-t_list *fill_a(char **argv, int argc, int i)
+t_list *fill_a(char **argv, int i)
 {
 	t_list	*a;
 	int		start;
-	
-	//ft_printf("filla i = %d\n", i);
+
 	start = i;
 	a = NULL;
-	while ((i < argc || argc  == 2) && argv[i])
+	while (argv[i])
 	{
-		//ft_printf("argv[%d] = %s\n", i ,argv[i]);
 		if (!(check_args(argv[i], i) && check_repeate(argv, argv[i], start, i)))
 		{
 			if (start == 0)
@@ -44,13 +42,13 @@ t_list *fill_a(char **argv, int argc, int i)
 	return (a);
 }
 
-int check_repeate(char **argv, char *str, int start ,int i)
+int	check_repeate(char **argv, char *str, int start ,int i)
 {
 	while (argv[start])
 	{
 		if (start != i)
 		{
-			if (ft_strncmp(str, argv[start],ft_strlen(str)) == 0)
+			if (ft_atoi(str) == ft_atoi(argv[start]))
 			{
 				return (0);
 			}
@@ -59,30 +57,30 @@ int check_repeate(char **argv, char *str, int start ,int i)
 	}
 	return (1);
 }
+
 int	check_args(char *str, int i)
 {
 	i = 0;
 	if (!*str)
 		return (0);
-		//visualize_split(argv);
 	while(str[i])
 	{
 		if (!(ft_isdigit(str[i])))
 		{
-			
 			if (str[i + 1])
 			{
-				if (str[i] == '-' && ft_isdigit(str[i + 1]))
-					;
-				else
+				if (!((str[i] == '-' || str[i] == '+') && ft_isdigit(str[i + 1])))
 					return (0);
 			}
 			else
 				return (0);
 		}
+		else if ((str[i + 1] && ft_isdigit(str[i]) &&
+			(str[i + 1] == '-' || str[i + 1] == '+')))
+			return (0);
 		i++;
 	}
-	if(ft_strlen(str) > 10 || ft_atoi(str) > 2147483647
+	if (ft_strlen(str) > 11 || (ft_atoi(str) > 2147483647)
 			|| ft_atoi(str) < (-2147483647 - 1))
 		return (0);
 	return (1);
@@ -100,7 +98,7 @@ t_list *filler(char **argv,  int i)
 	tmp = NULL;
 	while(argv[i])
 	{
-		n = malloc(4);
+		n = ft_calloc(4, 1);
 		*n = ft_atoi(argv[i]);
 		tmp= ft_lstnew(n);
 		ft_lstadd_back(&a, tmp);
@@ -109,6 +107,69 @@ t_list *filler(char **argv,  int i)
 	return (a);
 }
 
+char	*join_arg(char **argv, int argc)
+{
+	char	*joined_arg;
+	int		i;
+
+	i = 1;
+	joined_arg = NULL;
+	if (argc == 2)
+	{
+		joined_arg = ft_strdup(argv[i]);
+		return (joined_arg);
+	}
+	while(argv[i])
+	{
+		// //int len_arg = ft_strlen(joined_arg)  ;
+		// if (joined_arg) 
+		// {
+		// 	while (joined_arg[len_arg])
+		// 		len_arg++;
+			
+		// }
+		joined_arg = push_swap_strjoin(joined_arg, argv[i], ft_strlen(argv[i]) + ft_strlen(joined_arg));
+		//joined_arg = push_swap_strjoin(joined_arg, " ", ft_strlen(joined_arg) + 1);
+		//ft_printf("joined string = %s\n", joined_arg);
+		// len_arg = 0;
+		i++;
+	}
+	//	ft_printf("\nwhere do I seg\n");
+	return (joined_arg);
+}
+
+char	*push_swap_strjoin(char *joined_arg, char *argv, int len)
+{
+	char	*new;
+	int		i;
+	int		j;
+	int		len_joined;
+
+	new = NULL;
+	if (joined_arg == NULL)
+	{
+		return (ft_strdup(argv));
+	}
+	new = ft_calloc(sizeof(char *), len + 2);
+	if (!new)
+		return (NULL);
+	i = -1;
+	j = -1;
+	len_joined = ft_strlen(argv);
+	//ft_printf("joining %s with %s , len = %d, len_joined = %d\n",joined_arg, argv,  len, len_joined);
+	while (++i < len - len_joined )
+	{
+		new[i] = joined_arg[i];
+	}
+	new[i] = ' ';
+	while (++i < len + 1)
+		new[i] = argv[++j];
+	//ft_printf("after joining %s \n",new);
+
+	//new[i + 1] = '\0';
+	free(joined_arg);
+	return (new);
+}
 /*
 void visualize_split(char **arr)
 {

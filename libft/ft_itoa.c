@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 20:34:36 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/18 07:12:42 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/21 13:02:18 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ char	*ft_itoa(int n)
 {
 	int		i;
 	char	*result;
-	int		temp;
 	int		pow;
 
-	temp = 1;
 	i = 0;
 	if (n == 0 || n == -2147483648)
 		return (specials(n));
