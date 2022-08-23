@@ -5,21 +5,15 @@
 
 void	swap(t_list **head, char flag)
 {
-
 	t_list  *node1;
 	t_list	*node2;
 	t_list	*node3;
-
 
 	node1 = NULL;
 	node2 = NULL;
 	node3 = NULL;
 	if (!(*head) ||!(head) || !(*head)->next || !(*head)->next->next)
-	{
-		ft_printf("I am swap and I do nothing:(\n");
 		return ;
-	}
-
 	node1 = *head;
 	node2 = node1->next;
 	node3 = node2->next;
@@ -50,9 +44,9 @@ void	rotate(t_list **a, char flag)
 	tmp->next = NULL;
 	ft_lstadd_back(a, tmp);
 	if (flag == 'a')
-		ft_printf("ra");
+		ft_printf("ra\n");
 	else if (flag == 'b')
-		ft_printf("rb");
+		ft_printf("rb\n");
 }
 
 void	rotate_rr(t_list **a, t_list **b)

@@ -5,7 +5,6 @@ gcc -Wall -Wextra -Werror -g3    -c -o brain.o brain.c
 gcc -Wall -Wextra -Werror -g3    -c -o parse_me.o parse_me.c
 gcc -Wall -Wextra -Werror -g3    -c -o push.o push.c
 gcc -Wall -Wextra -Werror -g3    -c -o swap.o swap.c
- 
 gcc -Wall -Wextra -Werror -g3    -c -o cleaner.o cleaner.c
 make -C printf/.
 make -C libft/.

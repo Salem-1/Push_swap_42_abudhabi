@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 08:24:27 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/22 15:56:06 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/23 12:09:05 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 	if (argc < 2)
 		return (1);
 	joined_args = join_arg(argv, argc);
-	ft_printf("joinedargs = %s\n", joined_args);
+	//ft_printf("joinedargs = %s\n", joined_args);
 	splitted_args = ft_split(joined_args, ' ');
 	free(joined_args);
 	if (splitted_args[0] == NULL)
@@ -42,19 +42,11 @@ int main(int argc, char **argv)
 	}
 	a = fill_a(splitted_args, 0);
 	visualize_stack(a, b);
-	//  swap(&a, 'a');
-	//  visualize_stack(a, a);
-	//  visualize_stack(a, a);
-	
-	  //swap_ss(&a, &b);
-	push(&a, &b, 'b');
-	  swap(&b, 'b');
-	push(&a, &b, 'b');
-	  rotate(&b, 'b');
-	
-	//push(&a, &b, 'a');
+	brain(&a, &b);
+//	ft_printf("inside main item 2 = %d   item 1 = %d\n",*(int *)a->content , *(int *)a->next->content );
+	//push(&a, &b, 'b');
+	//push(&a, &b, 'b');
 	visualize_stack(a, b);
-	//brain(a, b);
 	ft_lstclear(&a, del);
 	ft_lstclear(&b, del);
 	return (0);
@@ -67,7 +59,6 @@ void	visualize_stack(t_list *a, t_list *b)
 	
 	j = -1;
 	i = -1;
-	// ft_printf("Visualizing stacks:\n" );
 	ft_printf("--------------------------------------------------\n");
 	if (!a && !b)
 	{
