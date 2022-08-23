@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 08:24:27 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/23 12:09:05 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/23 20:52:10 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,10 @@ int main(int argc, char **argv)
 	brain(&a, &b);
 //	ft_printf("inside main item 2 = %d   item 1 = %d\n",*(int *)a->content , *(int *)a->next->content );
 	//push(&a, &b, 'b');
-	//push(&a, &b, 'b');
+	push(&a, &b, 'b');
 	visualize_stack(a, b);
+	ft_printf("\n***************************************************\n");
+	ft_printf("***************************************************\n\n");
 	ft_lstclear(&a, del);
 	ft_lstclear(&b, del);
 	return (0);

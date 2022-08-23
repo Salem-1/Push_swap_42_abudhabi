@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 09:47:55 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/22 15:40:49 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/23 20:53:57 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,17 +121,8 @@ char	*join_arg(char **argv, int argc)
 	}
 	while(argv[i])
 	{
-		// //int len_arg = ft_strlen(joined_arg)  ;
-		// if (joined_arg) 
-		// {
-		// 	while (joined_arg[len_arg])
-		// 		len_arg++;
-			
-		// }
+
 		joined_arg = push_swap_strjoin(joined_arg, argv[i], ft_strlen(argv[i]) + ft_strlen(joined_arg));
-		//joined_arg = push_swap_strjoin(joined_arg, " ", ft_strlen(joined_arg) + 1);
-		//ft_printf("joined string = %s\n", joined_arg);
-		// len_arg = 0;
 		i++;
 	}
 	//	ft_printf("\nwhere do I seg\n");

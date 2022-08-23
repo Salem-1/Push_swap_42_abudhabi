@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 22:10:26 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/23 12:12:02 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/23 13:22:52 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,74 +34,69 @@ void	sort_2(t_list **a, char flag)
 	t_list	*tmp;
 	
 	tmp = (*a)->next;
-	ft_printf("inside sort item 2 = %d   item 1 = %d\n",*(int *)tmp->content, *(int *)(*a)->content );
 	if (!(*a && (*a)->next))
 		return ;
 	if (*(int *)tmp->content < *(int *)(*a)->content)
 		rotate(a, flag);
-	ft_printf("end of sort item 2 = %d   item 1 = %d\n",*(int *)tmp->content, *(int *)(*a)->content );
 }
 
 void	sort_3(t_list **a,	char flag)
 {
-	t_list	*node2;
-	t_list	*node3;
-	t_list	*node1;
+	t_3nodes	t;
 	
-	node1 = *a;
-	node2 = NULL;
-	node3 = NULL;
 	if (!((*a) || (*a)->next || (*a)->next->next))
+		return ;
+	t.node1 = *(int *)(*a)->content;
+	t.node2 = *(int *)(*a)->next->content;
+	t.node3 = *(int *)(*a)->next->next->content;
+	if (t.node3 > t.node2 && t.node3 > t.node1 && t.node1 >t.node2)
 	{
-		ft_printf("you cannot use sort 3 for null nodes\n");
+		swap(a, flag);
 		return ;
 	}
-	node2 = (*a)->next;
-	node3 = node2->next;
-	if (*(int *)node3->content > *(int *)node2->content &&
-			*(int *)node3->content > *(int *)node1->content)
+	else if (t.node3 > t.node2 && t.node3 > t.node1 && t.node1 < t.node2)
+		return ;
+	else if (t.node2 > t.node1 && t.node2 > t.node3 )
 	{
-		if (*(int *)node1->content > *(int *)node2->content)
-		{
-			swap(a, flag);
-			return ;
-		}
-		else
-			return ;
+		sort_3_large_node2(t, a, flag);
+		return ;
 	}
-	else if (*(int *)node2->content > *(int *)node1->content &&
-	*(int *)node2->content > *(int *)node3->content)
-	{
-		if (*(int *)node1->content > *(int *)node3->content)
-		{
-			reverse(a, flag);
-			return ;
-		}
-		else
-		{
-			swap(a, flag);
-			rotate(a, flag);
-			return ;
-		}
-		
-	}
-	else if (*(int *)node1->content > *(int *)node2->content &&
-				*(int *)node1->content > *(int *)node3->content)
-	{
-		if (*(int *)node3->content > *(int *)node2->content)
-		{
-			rotate(a, flag);
-			return ;
-		}
-		else
-		{
-			rotate(a, flag);
-			swap(a, flag);
-			return ; 
-		}
+	else if (t.node1 > t.node2)
+	{	
+		sort_3_large_node1(t, a, flag);
+		return ; 
 	}
 }
 
+void	sort_3_large_node2(t_3nodes t, t_list **a, char flag)
+{
+	if (t.node2 > t.node1 && t.node2 > t.node3 && t.node1 > t.node3)
+	{
+		reverse(a, flag);
+		return ;
+	}
+	else if (t.node2 > t.node1 && t.node2 > t.node3 && t.node1 < t.node3)
+	{
+		swap(a, flag);
+		rotate(a, flag);
+		return ;
+	}
+}
+
+void	sort_3_large_node1(t_3nodes t, t_list **a, char flag)
+{
+	if (t.node1 > t.node2 && t.node1 > t.node3 && t.node3 > t.node2)
+	{
+			rotate(a, flag);
+			return ;
+	}
+	else if (t.node1 > t.node2 && t.node1 > t.node3 && t.node3 < t.node2)
+	{
+		rotate(a, flag);
+		swap(a, flag);
+		return ; 
+	}
+}
 //sort_4()
 
 //sort_5()
