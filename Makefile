@@ -1,5 +1,5 @@
 NAME =	push_swap
-SRC	=	main.c brain.c parse_me.c push.c swap.c cleaner.c
+SRC	=	main.c brain.c parse_me.c push.c swap.c cleaner.c prepare_a.c
 LDIR = mlx
 CFLAGS = -Wall -Wextra -Werror -g3 #-Ofast
 CC = gcc

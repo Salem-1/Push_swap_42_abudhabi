@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 08:24:27 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/23 20:52:10 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/24 08:50:16 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,13 @@ int main(int argc, char **argv)
 		exit(1);
 	}
 	a = fill_a(splitted_args, 0);
+	index_stack(a);
 	visualize_stack(a, b);
-	brain(&a, &b);
+	//brain(&a, &b);
 //	ft_printf("inside main item 2 = %d   item 1 = %d\n",*(int *)a->content , *(int *)a->next->content );
 	//push(&a, &b, 'b');
-	push(&a, &b, 'b');
-	visualize_stack(a, b);
+	//push(&a, &b, 'b');
+	//visualize_stack(a, b);
 	ft_printf("\n***************************************************\n");
 	ft_printf("***************************************************\n\n");
 	ft_lstclear(&a, del);
@@ -73,14 +74,14 @@ void	visualize_stack(t_list *a, t_list *b)
 	{
 		if (a)
 		{
-			ft_printf("| %d     ----->     %d    | ", ++i, *(int *)a->content);
+			ft_printf("| %d     ----->     %d    | ", a->index, *(int *)a->content);
 			a = a->next;
 		}
 		else
 			ft_printf("|                       | ");
 		if (b)
 		{
-			ft_printf(" %d      <--     %d      ",  *(int *)b->content, ++j);
+			ft_printf(" %d      <--     %d      ",  *(int *)b->content, a->index);
 			b = b->next;
 		}
 		else

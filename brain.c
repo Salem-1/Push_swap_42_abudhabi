@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 22:10:26 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/23 13:22:52 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/24 07:26:59 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,9 @@ void	sort_3_large_node1(t_3nodes t, t_list **a, char flag)
 		return ; 
 	}
 }
-//sort_4()
+//sort_4() make this today inshalla
 
-//sort_5()
+//sort_5() when you make this you are done inshalla
 
 //sort_6()
 

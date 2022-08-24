@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 08:24:55 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/23 13:16:48 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/24 09:00:48 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,17 @@ typedef struct t_3nodes
 	int	node2;
 	int	node3;
 } t_3nodes;
+
+typedef	struct t_index_stack_vars
+{
+	t_list	*tmp1;
+	t_list	*tmp2;
+	int		current;
+	int		index;
+//	int		i;
+	int		lst_size;
+} t_index_stack_vars;
+
 
 t_list	*fill_a(char **args, int i);
 t_list	*filler(char **argv,  int i);
@@ -41,9 +52,17 @@ void	free_split(char **split);
 void	del(void *ptr);
 char	*push_swap_strjoin(char *joined_arg, char *argv, int len);
 char	*join_arg(char **argv, int argc);
-void	visualize_stack(t_list *a, t_list *b);
 void	sort_2(t_list **a, char flag);
 void	sort_3(t_list **a, char flag);
 void	sort_3_large_node2(t_3nodes t, t_list **a, char flag);
 void	sort_3_large_node1(t_3nodes t, t_list **a, char flag);
+void	index_stack(t_list *a);
+int		find_min(t_list *tmp, int min, int index, int *closed_set);
+// int		in_closed_set(int	num, int *closed_set, int len);
+
+
+
+
+void	visualize_stack(t_list *a, t_list *b);
+// void	print_closed_set(int *closed_set, int len);
 #endif
