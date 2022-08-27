@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 08:24:27 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/27 08:39:32 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/27 11:36:12 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,17 @@ int main(int argc, char **argv)
 	}
 	a = fill_a(splitted_args, 0);
 	index_stack(a);
-	visualize_stack(a, b);
+	//visualize_stack(a, b);
 	brain(&a, &b);
 //	ft_printf("inside main item 2 = %d   item 1 = %d\n",*(int *)a->content , *(int *)a->next->content );
 	//push(&a, &b, 'b');
 	//push(&a, &b, 'b');
-	visualize_stack(a, b);
-	ft_printf("\n------------------------------------");
-	ft_printf("\n|Total_moves = under construction %d|\n",0);
-	ft_printf("------------------------------------\b");
-	ft_printf("\n***************************************************\n");
-	ft_printf("***************************************************\n\n");
+	//visualize_stack(a, b);
+	//ft_printf("\n------------------------------------");
+	//ft_printf("\n|Total_moves = under construction %d|\n",0);
+	//ft_printf("------------------------------------\b");
+	//ft_printf("\n***************************************************\n");
+	//ft_printf("***************************************************\n\n");
 	ft_lstclear(&a, del);
 	ft_lstclear(&b, del);
 	return (0);

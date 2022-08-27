@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 15:52:14 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/27 09:50:57 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/27 11:33:09 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,39 +25,54 @@ void	sort_large_stack(t_list **a, t_list **b)
 	t.counter = 0;
 	if (!(*a || *b) || sorted(*a))
 		return ;
+	t.original_size = ft_lstsize(*a);
 	t.tmp = *a;
 	t.len_a = ft_lstsize(*a);
 	t.len_index = t.len_a / 2 ;
 	t.moves = t.len_index;
-	
 	while (1)
 	{
 		push_half_a(a, b, t);
 		t.counter = 0;
 		t.moves /= 2;
+		if (ft_lstsize(*a) <= 6 || (ft_lstsize(*a) <= 7 && t.original_size > 5000))
+			t.moves = 3;
 		t.len_index += t.moves ;
-		//if moves ==0 make it ==2
-	ft_printf("moves  = %d, counter = %d, a_size = %d\n",t.moves, t.counter, ft_lstsize(*a));
 		if (ft_lstsize(*a) <= 4 )
 		{
 			srt_remaining_a(a, b);
 			break;
 		}
 	}
-
-//push according least number of moves from left and right 
-
-
-//rebeate step 1 till reach 4 items in the stack or 6//
-
-//push back from a sorted items
-
-//if not the right order, rotate or reverse rotate till push the right index 
-
-
-// refine test submit and celebrate 
+	push_sorted_to_a(a, b);
 }
 
+void	push_sorted_to_a(t_list **a, t_list **b)
+{
+	t_index_stack_vars t;
+	t.tmp1 = *a;
+	t.tmp2 = *b;
+	//change this to while (*b)
+	//for (int i = 0; i < 30000; i++)
+	while(*b)
+	{
+		t.tmp1 = *a;
+		t.tmp2 = *b;
+		if (t.tmp2->index == (t.tmp1->index -1))
+			push(a, b, 'a');
+		else
+			sort_on_spot(b, 'b');
+		t.tmp1 = *a;
+		t.tmp2 = *b;
+		if (t.tmp2->index == (t.tmp1->index -1))
+			push(a, b, 'a');
+		else
+			rotate(b, 'b');
+
+	}
+}
+//try push ra and sort on the fly, 
+//try measure the shortest path to the largest number location > len / 2 ? rra : ra;
 void	push_half_a(t_list **a, t_list **b,t_large_stack_vars t)
 {
 		while (t.tmp)
@@ -73,7 +88,7 @@ void	push_half_a(t_list **a, t_list **b,t_large_stack_vars t)
 				push(a, b, 'b');
 				//ft_printf("$$$ pushed                        content %d              pushing tmp->index %d \n\n", (*(int *)(*b)->content), (*b)->index );
 
-				//sort_on_spot(b, 'b');
+				sort_on_spot(b, 'b');
 				t.counter++;
 			}
 			else
