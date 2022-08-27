@@ -22,6 +22,15 @@ while (len(gen) < int(num)):
 print("../push_swap ", end=" ")
 for i in gen:
 	print(i, end=" ")
+print("\n")
+print("echo \"---------------------------------------------------\"")
+print("echo \"Number of moves = $(../push_swap ", end=" ")
+for i in gen:
+	print(i, end=" ")
+print(" | wc -l)\"")
+print("../push_swap ", end=" ")
+for i in gen:
+	print(i, end=" ")
 print(" | ../checker_Mac  \" ", end = "")
 for i in gen:
 	print(i, end=" ")

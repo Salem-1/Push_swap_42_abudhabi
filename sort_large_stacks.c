@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 15:52:14 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/27 12:06:32 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/27 13:06:21 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void	push_sorted_to_a(t_list **a, t_list **b)
 		t.tmp2 = *b;
 		if (t.tmp2->index == (t.tmp1->index -1))
 			push(a, b, 'a');
-		else
-			sort_on_spot(b, 'b');
+		// else
+		// 	sort_on_spot(b, 'b');
 		t.tmp1 = *a;
 		t.tmp2 = *b;
 		if (t.tmp2->index == (t.tmp1->index -1))
