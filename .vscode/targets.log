@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Wed Aug 24 07:28:32 2022
+# Make data base, printed on Sat Aug 27 08:09:45 2022
 
 # Variables
 
@@ -16,10 +16,10 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
-# makefile (from `Makefile', line 6)
+# makefile (from `Makefile', line 7)
 OBJ = $(SRC:.c=.o)
 # makefile (from `Makefile', line 2)
-SRC = main.c brain.c parse_me.c push.c swap.c cleaner.c prepare_a.c
+SRC = main.c brain.c parse_me.c push.c swap.c cleaner.c prepare_a.c sort_till_3.c sort_large_stacks.c moves.c
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
@@ -29,21 +29,21 @@ VSCODE_LOG_NATIVE = false
 # automatic
 @F = $(notdir $@)
 # makefile
-CURDIR := /Users/ahsalem/projects/push_swap/parsing_task
+CURDIR := /Users/ahsalem/projects/push_swap/main_project_code
 # makefile
 SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
-# makefile (from `Makefile', line 4)
-CFLAGS = -Wall -Wextra -Werror -g3 
+# makefile (from `Makefile', line 5)
+CFLAGS = -Wall -Wextra -Werror -g3
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000cd04003381/T/vscode-ipc-7ac0b708-24be-4b41-9628-1ede8dac813a.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000cd04003381/T/vscode-ipc-73f6c7f5-7c42-4974-aa66-499489890efc.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -55,13 +55,13 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.XuV2ZgZJWX/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.OAPhnQ01wm/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-PWD = /Users/ahsalem/projects/push_swap/parsing_task
+PWD = /Users/ahsalem/projects/push_swap/main_project_code
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
@@ -75,13 +75,11 @@ VSCODE_CODE_CACHE_PATH = /Users/ahsalem/Library/Application Support/Code/CachedD
 # environment
 LOGNAME = ahsalem
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
-# makefile (from `Makefile', line 3)
-LDIR = mlx
 # environment
 XPC_FLAGS = 0x0
 # default
@@ -90,7 +88,7 @@ MAKE = $(MAKE_COMMAND)
 MAKECMDGOALS := all
 # environment
 SHLVL = 1
-# makefile (from `Makefile', line 5)
+# makefile (from `Makefile', line 6)
 CC = gcc
 # default
 MAKE_VERSION := 3.81
@@ -119,7 +117,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.microsoft.VSCode.2348
+XPC_SERVICE_NAME = com.microsoft.VSCode.2356
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -132,7 +130,7 @@ MAKEFILES :=
 <F = $(notdir $<)
 # environment
 LC_ALL = C
-# makefile (from `Makefile', line 7)
+# makefile (from `Makefile', line 8)
 LIBS = ./printf/printf.a ./libft/libft.a
 # automatic
 ^F = $(notdir $^)
@@ -145,9 +143,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 1058
+VSCODE_PID = 50946
 # variable set hash-table stats:
-# Load=67/1024=7%, Rehash=0, Collisions=3/95=3%
+# Load=66/1024=6%, Rehash=0, Collisions=3/94=3%
 
 # Pattern-specific Variable Values
 
@@ -155,9 +153,9 @@ VSCODE_PID = 1058
 
 # Directories
 
-# . (device 16777225, inode 885452): 25 files, no impossibilities.
+# . (device 16777225, inode 885452): 32 files, no impossibilities.
 
-# 25 files, no impossibilities in 1 directories.
+# 32 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -167,18 +165,17 @@ VSCODE_PID = 1058
 
 all: push_swap
 #  Command-line target.
-#  Implicit rule search has not been done.
+#  Implicit rule search has been done.
 #  File does not exist.
-#  File has not been updated.
+#  File has been updated.
+#  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 12):
-	
 
 # Not a target:
 brain.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-23 20:48:08
+#  Last modified 2022-08-26 16:33:22
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -193,7 +190,7 @@ brain.o:
 # Not a target:
 push.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-23 20:48:08
+#  Last modified 2022-08-26 16:33:22
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -202,7 +199,7 @@ push.o:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-24 07:28:00
+#  Last modified 2022-08-26 14:30:38
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -212,17 +209,35 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 28):
+#  commands to execute (from `Makefile', line 27):
 	@rm -f $(NAME) 
 	@rm -f libft/libft.a
-	@rm -f printf/print.a
+	@rm -f printf/printf.a
 	@rm -f push_swap
 	
 
 # Not a target:
 cleaner.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-23 20:48:08
+#  Last modified 2022-08-26 16:33:22
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+moves.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-26 16:33:22
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+sort_till_3.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-26 16:33:22
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -231,8 +246,9 @@ cleaner.o:
 # Not a target:
 prepare_a.o:
 #  Implicit rule search has been done.
-#  File does not exist.
-#  File has not been updated.
+#  Last modified 2022-08-26 16:33:22
+#  File has been updated.
+#  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
@@ -245,7 +261,7 @@ prepare_a.o:
 # Not a target:
 parse_me.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-23 20:48:08
+#  Last modified 2022-08-26 16:33:22
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -260,28 +276,38 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 21):
+#  commands to execute (from `Makefile', line 20):
 	@rm -f *.o
 	@make clean -C libft/.
 	@make clean -C printf/.
 	
 
-push_swap: main.o brain.o parse_me.o push.o swap.o cleaner.o prepare_a.o
+push_swap: main.o brain.o parse_me.o push.o swap.o cleaner.o prepare_a.o sort_till_3.o sort_large_stacks.o moves.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-23 20:52:18
-#  File has not been updated.
+#  Last modified 2022-08-26 20:02:20
+#  File has been updated.
+#  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 14):
+#  commands to execute (from `Makefile', line 13):
 	make -C printf/.
 	make -C libft/.
-	$(CC) $(CFLAGS) $(OBJ) $(LIBS)  -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBS) -o $(NAME)
 	
+
+# Not a target:
+sort_large_stacks.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-26 20:02:20
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 swap.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-23 20:48:08
+#  Last modified 2022-08-26 16:33:22
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -290,27 +316,26 @@ swap.o:
 # Not a target:
 main.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-23 20:52:17
+#  Last modified 2022-08-26 16:33:22
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # files hash-table stats:
-# Load=15/1024=1%, Rehash=0, Collisions=0/39=0%
+# Load=18/1024=2%, Rehash=0, Collisions=0/45=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
 
 # No general (`VPATH' variable) search path.
 
+ 
 # # of strings in strcache: 1
 # # of strcache buffers: 1
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Wed Aug 24 07:28:32 2022
+# Finished Make data base on Sat Aug 27 08:09:45 2022
 
  
-make: *** No rule to make target `prepare_a.o', needed by `push_swap'.  Stop.
-

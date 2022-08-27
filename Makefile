@@ -1,19 +1,18 @@
-NAME =	push_swap
-SRC	=	main.c brain.c parse_me.c push.c swap.c cleaner.c prepare_a.c
-LDIR = mlx
-CFLAGS = -Wall -Wextra -Werror -g3 #-Ofast
+NAME = push_swap
+SRC = main.c brain.c parse_me.c push.c swap.c cleaner.c prepare_a.c \
+sort_till_3.c sort_large_stacks.c moves.c
+
+CFLAGS = -Wall -Wextra -Werror -g3
 CC = gcc
-OBJ	=	$(SRC:.c=.o)
-LIBS =  ./printf/printf.a ./libft/libft.a
-
-
+OBJ = $(SRC:.c=.o)
+LIBS = ./printf/printf.a ./libft/libft.a
 
 all: $(NAME)
-		 
+
 $(NAME): $(OBJ)
 	make -C printf/.
 	make -C libft/.
-	$(CC) $(CFLAGS) $(OBJ) $(LIBS)  -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBS) -o $(NAME)
 
 
 
@@ -27,7 +26,7 @@ clean:
 fclean: clean 
 	@rm -f $(NAME) 
 	@rm -f libft/libft.a
-	@rm -f printf/print.a
+	@rm -f printf/printf.a
 	@rm -f push_swap
 	
 re: fclean all

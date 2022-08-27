@@ -6,9 +6,10 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 08:24:55 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/24 09:00:48 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/26 12:05:46 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -17,7 +18,7 @@
 # include "libft/libft.h"
 # include "printf/ft_printf.h"
 
-typedef struct t_3nodes
+typedef	struct t_3nodes
 {
 	int	node1;
 	int	node2;
@@ -34,6 +35,14 @@ typedef	struct t_index_stack_vars
 	int		lst_size;
 } t_index_stack_vars;
 
+typedef	struct t_large_stack_vars
+{
+	int		len_a;
+	int		len_index;
+	t_list	*tmp;
+	int		moves;
+	int		counter;
+} t_large_stack_vars;
 
 t_list	*fill_a(char **args, int i);
 t_list	*filler(char **argv,  int i);
@@ -58,11 +67,15 @@ void	sort_3_large_node2(t_3nodes t, t_list **a, char flag);
 void	sort_3_large_node1(t_3nodes t, t_list **a, char flag);
 void	index_stack(t_list *a);
 int		find_min(t_list *tmp, int min, int index, int *closed_set);
-// int		in_closed_set(int	num, int *closed_set, int len);
-
-
-
-
+void	sort_4(t_list **a, t_list **b, char flag);
+void	sort_4_cases(t_list **a, t_list **b, char flag,int min_location);
+int		sorted(t_list *a);
+void	sort_large_stack(t_list **a, t_list **b);
 void	visualize_stack(t_list *a, t_list *b);
-// void	print_closed_set(int *closed_set, int len);
+void	srt_remaining_a(t_list **a, t_list **b);
+void	push_half_a(t_list **a, t_list **b,t_large_stack_vars t);
+void	sort_on_spot(t_list **b,char flag); 
+void	sresrs(t_list **b, char flag);
+void	resrs(t_list **b, char flag);
+void	srsre(t_list **b, char flag);
 #endif
