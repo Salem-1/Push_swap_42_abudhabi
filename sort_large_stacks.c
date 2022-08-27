@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 15:52:14 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/27 11:33:09 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/27 12:06:32 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,9 +109,14 @@ void	srt_remaining_a(t_list **a, t_list **b)
 			sort_3(a, 'a');
 			return ;
 		}
+		else if (ft_lstsize(*a) == 2)
+		{
+			sort_2(a, 'a');
+			return ;
+		}
 		else
 		{
-			ft_printf("inside set remaining, len a is %d this line \n shouldn't be triggered\n");
+			ft_printf("inside set remaining, len a is %d this line \n shouldn't be triggered\n", ft_lstsize(*a));
 		}
 }
 

@@ -11,7 +11,7 @@ gen = set()
 
 while (len(gen) < int(num)):
 
-	gen.add(random.randint(-21345687, 21345687))
+	gen.add(random.randint(-2147483648, 2147483647))
 	if len(gen) >= int(num):
 		break
 	gen.add(random.randint(-10, 5000))
@@ -22,7 +22,7 @@ while (len(gen) < int(num)):
 print("../push_swap ", end=" ")
 for i in gen:
 	print(i, end=" ")
-print(" | ../checker \" ")
+print(" | ../checker_Mac  \" ", end = "")
 for i in gen:
 	print(i, end=" ")
 print("\"")
