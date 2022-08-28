@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 08:24:55 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/27 11:20:41 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/28 13:02:08 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,11 @@ typedef	struct t_index_stack_vars
 
 typedef	struct t_large_stack_vars
 {
-	int		len_a;
-	int		len_index;
 	t_list	*tmp;
+	int		len_a;
 	int		original_size;
+	int		len_index;
+	int		half_len;
 	int		moves;
 	int		counter;
 } t_large_stack_vars;
@@ -79,4 +80,18 @@ void	sresrs(t_list **b, char flag);
 void	resrs(t_list **b, char flag);
 void	srsre(t_list **b, char flag);
 void	push_sorted_to_a(t_list **a, t_list **b);
+int		position_b(t_list *b, int ind);
+int		position_a(t_list *a, int ind);
+void	fill_b(t_list **a, t_list **b, t_large_stack_vars	t);
 #endif
+
+// t.half_len = t.moves / 2 + t.len_index;
+// void	sort_on_spot(t_list **b, char flag, int half_len)
+// {
+
+// 	if (!(*b))
+// 		return ;
+// 	if (((*b)->index) <= half_len)
+// 		reverse(b, flag);
+		
+		

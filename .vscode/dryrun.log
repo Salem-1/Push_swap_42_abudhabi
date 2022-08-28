@@ -1,13 +1,11 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/ahsalem/projects/push_swap/main_project_code'
 gcc -Wall -Wextra -Werror -g3   -c -o main.o main.c
- 
 gcc -Wall -Wextra -Werror -g3   -c -o brain.o brain.c
 gcc -Wall -Wextra -Werror -g3   -c -o parse_me.o parse_me.c
 gcc -Wall -Wextra -Werror -g3   -c -o push.o push.c
 gcc -Wall -Wextra -Werror -g3   -c -o swap.o swap.c
 gcc -Wall -Wextra -Werror -g3   -c -o cleaner.o cleaner.c
- 
 gcc -Wall -Wextra -Werror -g3   -c -o prepare_a.o prepare_a.c
 gcc -Wall -Wextra -Werror -g3   -c -o sort_till_3.o sort_till_3.c
 gcc -Wall -Wextra -Werror -g3   -c -o sort_large_stacks.o sort_large_stacks.c

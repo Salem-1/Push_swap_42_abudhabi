@@ -35,4 +35,5 @@ print(" | ../checker_Mac  \" ", end = "")
 for i in gen:
 	print(i, end=" ")
 print("\"")
+print("echo \"len of generated stack is \"", len(gen))
 
