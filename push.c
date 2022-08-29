@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 07:02:41 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/24 13:41:06 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/29 15:29:08 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	push(t_list **a, t_list **b, char flag)
 	if (flag == 'a')
 	{
 		if (!(*b))
-			return;
+			return ;
 		tmp = *b;
 		*b = (*b)->next;
 		ft_lstadd_front(a, tmp);
@@ -29,7 +29,7 @@ void	push(t_list **a, t_list **b, char flag)
 	else if (flag == 'b')
 	{
 		if (!(*a))
-			return;
+			return ;
 		tmp = *a;
 		*a = (*a)->next;
 		ft_lstadd_front(b, tmp);

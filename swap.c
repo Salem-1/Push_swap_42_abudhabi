@@ -1,11 +1,20 @@
-//swap first with seconde
-//make it a poly_morphic function to use in swapping a, b and both of them
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/29 12:31:47 by ahsalem           #+#    #+#             */
+/*   Updated: 2022/08/29 12:32:20 by ahsalem          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
 void	swap(t_list **head, char flag)
 {
-	t_list  *node1;
+	t_list	*node1;
 	t_list	*node2;
 	t_list	*node3;
 
@@ -23,7 +32,7 @@ void	swap(t_list **head, char flag)
 	if (flag == 'a')
 		ft_printf("sa\n");
 	else if (flag == 'b')
-		ft_printf("sb\n");	
+		ft_printf("sb\n");
 }
 
 void	swap_ss(t_list **a, t_list **b)
@@ -35,7 +44,7 @@ void	swap_ss(t_list **a, t_list **b)
 
 void	rotate(t_list **a, char flag)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	if (!*a || !(*a)->next)
 		return ;

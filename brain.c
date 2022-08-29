@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 22:10:26 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/29 09:08:32 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/29 17:33:40 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	brain(t_list **a, t_list **b)
 {
 	int	size_a;
-	
+
 	size_a = ft_lstsize(*a);
 	if (size_a == 1)
 		return ;
@@ -28,7 +28,6 @@ void	brain(t_list **a, t_list **b)
 	else
 		sort_large_stack(a, b);
 }
-
 
 void	sort_4(t_list **a, t_list **b, char flag)
 {
@@ -45,7 +44,7 @@ void	sort_4(t_list **a, t_list **b, char flag)
 	index = tmp->index;
 	while (tmp)
 	{
-		if(tmp->index < index)
+		if (tmp->index < index)
 		{
 			min_location = min_index;
 			index = tmp->index;
@@ -56,68 +55,36 @@ void	sort_4(t_list **a, t_list **b, char flag)
 	sort_4_cases(a, b, flag, min_location);
 }
 
-void	sort_4_cases(t_list **a, t_list **b, char flag,int min_location)
+void	sort_4_cases(t_list **a, t_list **b, char flag, int min_location)
 {
 	if (min_location == 1)
 	{
 		if (!sorted(*a))
-		{
-			push(a, b, flag);
-			sort_3(a, (flag == 'a') + 'a');
-			push(a, b, (flag == 'a') + 'a');
-		}
+			psp(a, b, flag);
 		return ;
 	}
-	else if(min_location == 2)
+	else if (min_location == 2)
 	{
-		if ((*a)->index > (*a)->next->next->index &&
-				(*a)->index > (*a)->next->next->next->index)
-		{
-			rotate(a, (flag == 'a') + 'a');
-			sort_4_cases(a, b, flag, 1);
-		}
+		if ((*a)->index > (*a)->next->next->index
+			&& (*a)->index > (*a)->next->next->next->index)
+			rs(a, b, flag);
 		else
-		{
-			swap(a, (flag == 'a') + 'a');
-			sort_4_cases(a, b, flag, 1);
-		}
+			ss(a, b, flag);
 	}
 	else if (min_location == 4)
-	{
-		reverse(a, (flag == 'a') + 'a');
-		sort_4_cases(a, b, flag, 1);
-	}
+		reverse_sort(a, b, flag);
 	else if (min_location == 3)
-	{
-		if ((*a)->next->next->next->index > (*a)->index &&
-				(*a)->next->next->next->index > (*a)->next->index)
-		{
-			rotate(a, (flag == 'a') + 'a');
-			rotate(a, (flag == 'a') + 'a');
-			sort_4_cases(a, b, flag, 1);
-		}
-		else
-		{
-			reverse(a, (flag == 'a') + 'a');
-			reverse(a, (flag == 'a') + 'a');
-			sort_4_cases(a, b, flag, 1);
-		}
-	}
+		min_location_3_sort(a, b, flag);
 	else
-	{
-		reverse(a, (flag == 'a') + 'a');
-		sort_4_cases(a, b, flag, 1);
-	}
-	
+		reverse_sort(a, b, flag);
 }
-
 
 int	sorted(t_list *a)
 {
 	t_list	*tmp;
 
 	if (!a)
-		return 0;
+		return (0);
 	tmp = a;
 	while (tmp->next)
 	{
@@ -127,9 +94,3 @@ int	sorted(t_list *a)
 	}
 	return (1);
 }
-
-
-
-
-
-

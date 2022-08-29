@@ -1,6 +1,7 @@
 NAME = push_swap
 SRC = main.c brain.c parse_me.c push.c swap.c cleaner.c prepare_a.c \
-sort_till_3.c sort_large_stacks.c moves.c large_stack_utils.c sort_above_75.c
+sort_till_3.c sort_large_stacks.c moves.c large_stack_utils.c sort_above_75.c \
+parsing_utils.c
 
 CFLAGS = -Wall -Wextra -Werror -g3
 CC = gcc
