@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 08:07:36 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/22 15:09:27 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/29 17:43:26 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	**ft_split(char const *s, char c)
 	all_data = word_data(s, c, i);
 	if (!all_data)
 		return (NULL);
-	arr = (char **)ft_calloc(sizeof(char *) , (all_data[i] + 1));
+	arr = (char **)ft_calloc(sizeof(char *), (all_data[i] + 1));
 	if (!arr)
 	{
 		free(all_data);
@@ -74,7 +74,7 @@ static int	*word_data(char const *s, char c, int i)
 			word_counter++;
 		i++;
 	}
-	arr = ft_calloc(sizeof(int *) , (word_counter + 2) + 1);
+	arr = ft_calloc(sizeof(int *), (word_counter + 2) + 1);
 	if (!arr)
 		return (NULL);
 	arr[0] = word_counter;
@@ -88,7 +88,7 @@ static int	*word_data(char const *s, char c, int i)
 
 static char	**nuller(char **arr)
 {
-	arr = ft_calloc(sizeof(char *) ,(1));
+	arr = ft_calloc(sizeof(char *), 1);
 	if (!arr)
 		return (NULL);
 	arr[0] = NULL;

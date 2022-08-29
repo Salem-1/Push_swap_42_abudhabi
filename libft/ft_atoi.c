@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 18:37:18 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/21 18:46:08 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/29 17:47:48 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ long	int_generator(const char *str, long num, int sign);
 
 long	ft_atoi(const char *str)
 {
-	int	sign;
+	int		sign;
 	long	num;
 
 	num = 0;
