@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 22:10:26 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/24 21:15:14 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/29 09:08:32 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	brain(t_list **a, t_list **b)
 	int	size_a;
 	
 	size_a = ft_lstsize(*a);
-//	ft_printf("list size = %d\n", size_a);
 	if (size_a == 1)
 		return ;
 	else if (size_a == 2)
@@ -28,7 +27,6 @@ void	brain(t_list **a, t_list **b)
 		sort_4(a, b, 'b');
 	else
 		sort_large_stack(a, b);
-	//ft_printf("inside brain item 2 = %d   item 1 = %d\n",*(int *)(a)->next->content, *(int *)(a)->content );
 }
 
 
@@ -55,7 +53,6 @@ void	sort_4(t_list **a, t_list **b, char flag)
 		min_index++;
 		tmp = tmp->next;
 	}
-	//ft_printf(", min_location = %d, min_index = %d\n", min_location, min_index);
 	sort_4_cases(a, b, flag, min_location);
 }
 
@@ -111,7 +108,6 @@ void	sort_4_cases(t_list **a, t_list **b, char flag,int min_location)
 		reverse(a, (flag == 'a') + 'a');
 		sort_4_cases(a, b, flag, 1);
 	}
-	// sort_3(a, 'a');
 	
 }
 

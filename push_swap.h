@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 08:24:55 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/29 06:40:00 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/29 09:14:54 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,12 @@ typedef	struct t_large_stack_vars
 	int		counter;
 	int		factor;
 } t_large_stack_vars;
+
+typedef struct t_main_vars
+{
+	char	*joined_args;
+	char	**splitted_args;
+} t_main_vars;
 
 t_list	*fill_a(char **args, int i);
 t_list	*filler(char **argv,  int i);
@@ -86,16 +92,8 @@ int		position_a(t_list *a, int ind);
 void	fill_b(t_list **a, t_list **b, t_large_stack_vars	t);
 void	rotate_shortest_path(t_list **a, int len_index, char flag);
 void	sort_above_10(t_list **a, t_list **b);
-void fill_b_above_10(t_list **a, t_list **b, t_large_stack_vars	t);
+void	fill_b_above_10(t_list **a, t_list **b, t_large_stack_vars	t);
+void	visualize_stack(t_list *a, t_list *b);
+void visualize_split(char **arr);
+
 #endif
-
-// t.half_len = t.moves / 2 + t.len_index;
-// void	sort_on_spot(t_list **b, char flag, int half_len)
-// {
-
-// 	if (!(*b))
-// 		return ;
-// 	if (((*b)->index) <= half_len)
-// 		reverse(b, flag);
-		
-		

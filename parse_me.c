@@ -6,17 +6,14 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 09:47:55 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/23 20:53:57 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/29 09:15:50 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-//check isdigit
-//check dublication
-//check for > or < int, you can do it inside the atoi
-//There is a good chance to do something with indexing the taken parameters
-void visualize_split(char **arr);
-t_list *fill_a(char **argv, int i)
+
+
+t_list	*fill_a(char **argv, int i)
 {
 	t_list	*a;
 	int		start;
@@ -125,7 +122,6 @@ char	*join_arg(char **argv, int argc)
 		joined_arg = push_swap_strjoin(joined_arg, argv[i], ft_strlen(argv[i]) + ft_strlen(joined_arg));
 		i++;
 	}
-	//	ft_printf("\nwhere do I seg\n");
 	return (joined_arg);
 }
 
@@ -147,20 +143,17 @@ char	*push_swap_strjoin(char *joined_arg, char *argv, int len)
 	i = -1;
 	j = -1;
 	len_joined = ft_strlen(argv);
-	//ft_printf("joining %s with %s , len = %d, len_joined = %d\n",joined_arg, argv,  len, len_joined);
-	while (++i < len - len_joined )
+	while (++i < len - len_joined)
 	{
 		new[i] = joined_arg[i];
 	}
 	new[i] = ' ';
 	while (++i < len + 1)
 		new[i] = argv[++j];
-	//ft_printf("after joining %s \n",new);
-
-	//new[i + 1] = '\0';
 	free(joined_arg);
 	return (new);
 }
+
 /*
 void visualize_split(char **arr)
 {

@@ -6,13 +6,12 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 06:24:28 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/29 08:49:03 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/29 09:12:33 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//revise using this function for optimisation if the moves are too much 
 void	sort_on_spot(t_list **b, char flag)
 {
 	t_list	*node1;
@@ -24,10 +23,10 @@ void	sort_on_spot(t_list **b, char flag)
 	node1 = *b;
 	node2 = (*b)->next;
 	last_node = ft_lstlast(*b);
-	if(node1->index > node2->index && node1->index > last_node->index)
+	if (node1->index > node2->index && node1->index > last_node->index)
 	{
 		if (node2->index > last_node->index)
-		return ;
+			return ;
 		else if (node2->index < last_node->index)
 			sresrs(b, flag);
 	}
@@ -35,7 +34,6 @@ void	sort_on_spot(t_list **b, char flag)
 		swap(b, flag);
 	else if (node1->index < node2->index && node1->index < last_node->index)
 		resrs(b, flag);
-
 	else if (node1->index > node2->index && node1->index < last_node->index)
 		srsre(b, flag);
 }
@@ -45,38 +43,31 @@ void	srt_remaining_a(t_list **a, t_list **b)
 	if (!((*a) || (*b)))
 		return ;
 	if (ft_lstsize(*a) == 4)
-		{
-			sort_4(a, b, 'b');
-			return;
-		}
-		else if (ft_lstsize(*a) == 3)
-		{
-			sort_3(a, 'a');
-			return ;
-		}
-		else if (ft_lstsize(*a) == 2)
-		{
-			sort_2(a, 'a');
-			return ;
-		}
-		else
-		{
-			ft_printf("inside set remaining, len a is %d this line \n shouldn't be triggered\n", ft_lstsize(*a));
-		}
+	{
+		sort_4(a, b, 'b');
+		return ;
+	}
+	else if (ft_lstsize(*a) == 3)
+	{
+		sort_3(a, 'a');
+		return ;
+	}
+	else if (ft_lstsize(*a) == 2)
+	{
+		sort_2(a, 'a');
+		return ;
+	}
 }
-
-
 
 void	push_sorted_to_a(t_list **a, t_list **b)
 {
-	t_index_stack_vars t;
+	t_index_stack_vars	t;
+
 	t.tmp1 = *a;
 	t.tmp2 = *b;
-	//change this to while (*b)
-	//for (int i = 0; i < 30000; c
 	if (!((*a) || (*b)))
 		return ;
-	while(*b)
+	while (*b)
 	{
 		t.tmp1 = *a;
 		t.tmp2 = *b;
@@ -106,7 +97,7 @@ int	position_b(t_list *b, int ind)
 	while (tmp)
 	{
 		if (tmp->index == ind)
-			return (i) ;
+			return (i);
 		tmp = tmp->next;
 		i++;
 	}

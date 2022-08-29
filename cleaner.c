@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 09:04:28 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/21 09:12:06 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/29 09:09:18 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,12 @@ void	free_split(char **split)
 
 	i = -1;
 	while (split[++i])
-	{
 		free(split[i]);
-	}
 	free(split);
-	// ft_printf("splitted argv freed :)\n");
 }
 
-void del(void *ptr)
+void	del(void *ptr)
 {
-	if(ptr)
+	if (ptr)
 		free(ptr);
 }
