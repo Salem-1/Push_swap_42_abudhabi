@@ -12,12 +12,13 @@ gen = set()
 while (len(gen) < int(num)):
 
 	gen.add(random.randint(-2147483648, 2147483647))
+	# gen.add(random.randint(-1000,1000))
 	if len(gen) >= int(num):
 		break
-	gen.add(random.randint(-10, 5000))
-	if len(gen) >= int(num):
-		break
-	gen.add(random.randint(0, 500))
+	# gen.add(random.randint(-10, 5000))
+	# if len(gen) >= int(num):
+	# 	break
+	# gen.add(random.randint(0, 500))
 
 print("../push_swap ", end=" ")
 for i in gen:

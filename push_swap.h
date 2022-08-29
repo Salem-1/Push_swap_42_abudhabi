@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 08:24:55 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/28 13:02:08 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/29 06:40:00 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef	struct t_large_stack_vars
 	int		half_len;
 	int		moves;
 	int		counter;
+	int		factor;
 } t_large_stack_vars;
 
 t_list	*fill_a(char **args, int i);
@@ -83,6 +84,9 @@ void	push_sorted_to_a(t_list **a, t_list **b);
 int		position_b(t_list *b, int ind);
 int		position_a(t_list *a, int ind);
 void	fill_b(t_list **a, t_list **b, t_large_stack_vars	t);
+void	rotate_shortest_path(t_list **a, int len_index, char flag);
+void	sort_above_10(t_list **a, t_list **b);
+void fill_b_above_10(t_list **a, t_list **b, t_large_stack_vars	t);
 #endif
 
 // t.half_len = t.moves / 2 + t.len_index;

@@ -6,7 +6,7 @@
 /*   By: ahsalem <ahsalem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 08:24:27 by ahsalem           #+#    #+#             */
-/*   Updated: 2022/08/27 11:36:12 by ahsalem          ###   ########.fr       */
+/*   Updated: 2022/08/29 08:47:39 by ahsalem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int main(int argc, char **argv)
 	}
 	a = fill_a(splitted_args, 0);
 	index_stack(a);
-	//visualize_stack(a, b);
 	brain(&a, &b);
 //	ft_printf("inside main item 2 = %d   item 1 = %d\n",*(int *)a->content , *(int *)a->next->content );
 	//push(&a, &b, 'b');
@@ -56,7 +55,7 @@ int main(int argc, char **argv)
 	ft_lstclear(&b, del);
 	return (0);
 }
-
+/*
 void	visualize_stack(t_list *a, t_list *b)
 {
 	int	i;
@@ -94,3 +93,4 @@ void	visualize_stack(t_list *a, t_list *b)
 		ft_printf("--------------------------------------------------\n");
 	// ft_printf("Visualization end.......\n");
 }
+*/
